@@ -48,7 +48,10 @@ const HDWalletProvider = require('@truffle/hdwallet-provider')
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
-const private_keys = [process.env.PRIVATE_KEY_0, process.env.PRIVATE_KEY_1]
+const private_keys = [
+  process.env.PRIVATE_KEY_0,
+  // , process.env.PRIVATE_KEY_1
+]
 
 module.exports = {
   /**
@@ -90,10 +93,10 @@ module.exports = {
       provider: () =>
         new HDWalletProvider({
           privateKeys: private_keys,
-          providerOrUrl: `https://arbitrum-sepolia.infura.io/v3/f01b66e9571f46b180b4373b324244e5`,
-          numberOfAddresses: 2,
+          providerOrUrl: `https://sepolia-rollup.arbitrum.io/rpc`,
+          numberOfAddresses: 1,
         }),
-      network_id: 421614, // Goerli's id
+      network_id: 421614, // Sepolia's id
       confirmations: 2, // # of confirmations to wait between deployments. (default: 0)
       timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
       skipDryRun: true, // Skip dry run before migrations? (default: false for public nets )
